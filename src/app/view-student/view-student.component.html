@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">View Student Details</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+       <div class="btn-group">
+          <!-- goBack() methos to back to previous component -->
+          <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Go Back</button>
+       </div>
+    </div>
+ </div>
+ 
+ 
+ <div class="row">
+    <div class="col-lg-12">
+       <div class="pricing-header form-block mx-auto">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                     <dl class="row">
+                         <dt class="col-sm-3">First name: </dt><dd class="col-sm-9"> {{ student.firstName }} </dd>
+                         <dt class="col-sm-3">Last name: </dt><dd class="col-sm-9"> {{ student.lastName }} </dd>
+                         <dt class="col-sm-3">Email: </dt><dd class="col-sm-9"> {{ student.email }} </dd>
+                         <dt class="col-sm-3">Mobile Number: </dt><dd class="col-sm-9"> {{ student.mobileNumber }} </dd>
+                     </dl>
+                  </div>
+                </div>
+            </div>
+          </div>
+       </div>
+    </div>
+ </div>
