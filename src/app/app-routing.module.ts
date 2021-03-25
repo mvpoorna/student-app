@@ -12,7 +12,7 @@ import { ViewStudentComponent } from './view-student/view-student.component';
 
 // Routes array define component along with the path name for url
 const routes: Routes = [
-  { path: '', redirectTo: '/register-student', pathMatch: 'full' },
+  //{ path: '', redirectTo: '/register-student', pathMatch: 'full' },
   { path: 'register-student', component: AddStudentComponent },
   { path: 'view-students', component: StudentListComponent },
   { path: 'edit-student/:id', component: EditStudentComponent },

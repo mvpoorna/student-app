@@ -10,3 +10,6 @@ export const environment = {
     measurementId: "G-JCVVH45H5D"
   }
 };
+
+// 866153160783-vqujao07gr05d3tclmq3llt4drd4t67e.apps.googleusercontent.com
+// 9B1TFCRMPBHzzJJlv3h_8d2f

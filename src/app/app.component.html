@@ -1,35 +1,60 @@
+<div class="container">
+  <div class="row" *ngIf="isLoggedin == false">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign In</h5>
+          <form class="form-signin">
+            <div class="form-label-group">
+              <label for="inputEmail">Email address</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            </div>
+
+            <div class="form-label-group">
+              <label for="inputPassword">Password</label>
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-google btn-block text-uppercase" (click)="loginWithGoogle()" type="button"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav *ngIf="isLoggedin == true" class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
     <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
     <span class="dasboard-text"> Dashboard</span>
   </a>
   <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" routerLink="/register-student">
-        <span class="user-image" style="background-image: url('assets/user.jpg')"></span>
-        Hello Admin
-      </a>
+    <li class="nav-item dropdown">
+      <a class="nav-link" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello {{ socialUser.name }} <button type="button" (click)="logOut()" class="ml-3 btn btn-primary">Log Out</button></a> 
     </li>
   </ul>
 </nav>
 
 <!-- Sidebar navigation -->
-<div class="container-fluid mt-5">
+<div *ngIf="isLoggedin == true" class="container-fluid pt-3 mt-5">
   <div class="row">
+    
     <nav class="col-md-2 d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
+        <img class="rounded-circle ml-4" src="{{socialUser.photoUrl}}" />
         <ul class="nav flex-column">
-
-          <!-- routerLink="/register-student" to navigate to view-students component -->
           <li class="nav-item">
             <a class="nav-link" routerLink="/register-student" routerLinkActive="active">
               <i class="fas fa-plus"></i>Add Student
             </a>
           </li>
-
-          <!-- routerLink="/view-students" to navigate to view-students component -->
-          <!-- routerLinkActive="active" activates active class for component-->
           <li class="nav-item">
             <a class="nav-link" routerLink="/view-students" routerLinkActive="active">
               <i class="fas fa-list-ul"></i>Students List
@@ -38,16 +63,10 @@
         </ul>
       </div>
     </nav>
-
-    <!-- Main content -->
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="inner-adjust">
-
-        <!-- Use router template to show the components for which router service is activated -->
         <router-outlet></router-outlet>
-
       </div>
     </main>
-
   </div>
 </div>

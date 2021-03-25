@@ -23,6 +23,7 @@
     "@angular/router": "~9.0.2",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@ng-bootstrap/ng-bootstrap": "^9.0.2",
+    "angularx-social-login": "^3.5.4",
     "bootstrap": "^4.6.0",
     "firebase": "^8.2.9",
     "ngx-pagination": "^5.0.0",

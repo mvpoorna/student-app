@@ -29,6 +29,10 @@ import { ViewStudentComponent } from './view-student/view-student.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { ConfirmationService } from './confirmation/confirmation.service';
 
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { AuthenticationService } from './shared/authentication.service';
+
 
 @NgModule({
   declarations: [
@@ -52,10 +56,27 @@ import { ConfirmationService } from './confirmation/confirmation.service';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,      
     }),
-    NgxPaginationModule  // NGX pagination module
-    
+    NgxPaginationModule,  // NGX pagination module
+    SocialLoginModule
   ],
-  providers: [ConfirmationService],
+  providers: [
+    ConfirmationService,
+    AuthenticationService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '866153160783-vqujao07gr05d3tclmq3llt4drd4t67e.apps.googleusercontent.com'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
